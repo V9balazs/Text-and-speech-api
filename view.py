@@ -1,6 +1,8 @@
 from PyQt6 import QtWidgets, uic
 from PyQt6.QtCore import QThread, pyqtSignal
 
+from api_call import text_to_speech
+
 
 class MainView(QtWidgets.QMainWindow):
     def __init__(self):
@@ -12,10 +14,11 @@ class MainView(QtWidgets.QMainWindow):
         self.textEdit.textChanged.connect(self.text_changed)
 
     def button_clicked(self):
-        print("Gomb megnyomva")
+        text = self.textEdit.toPlainText()
+        text_to_speech(text)
 
     def combo_changed(self):
         print("Combo box változott")
 
     def text_changed(self):
-        print("Szöveg változott")
+        pass
