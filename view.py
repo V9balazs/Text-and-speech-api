@@ -1,7 +1,8 @@
+from elevenlabs import voices
 from PyQt6 import QtWidgets, uic
 from PyQt6.QtCore import QThread, pyqtSignal
 
-from api_call import text_to_speech
+from api_call import avaliable_voices, text_to_speech
 
 
 class MainView(QtWidgets.QMainWindow):
@@ -13,12 +14,22 @@ class MainView(QtWidgets.QMainWindow):
         self.comboBox.currentTextChanged.connect(self.combo_changed)
         self.textEdit.textChanged.connect(self.text_changed)
 
+        self.populate_voices_combobox()
+
     def button_clicked(self):
         text = self.textEdit.toPlainText()
-        text_to_speech(text)
+        selected_index = self.comboBox.currentIndex()
+        selected_voice_id = self.comboBox.itemData(selected_index)
+        text_to_speech(text, selected_voice_id)
+
+    def populate_voices_combobox(self):
+        voices = avaliable_voices()
+        sorted_voices = sorted(voices.voices, key=lambda x: x.name)
+        for voice in sorted_voices:
+            self.comboBox.addItem(voice.name, userData=voice.voice_id)
 
     def combo_changed(self):
-        print("Combo box változott")
+        pass
 
     def text_changed(self):
         pass

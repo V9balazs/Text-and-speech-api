@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>376</height>
+    <height>363</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,13 +18,13 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>290</y>
+      <y>280</y>
       <width>111</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Generate</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox">
@@ -45,6 +45,9 @@
       <width>421</width>
       <height>261</height>
      </rect>
+    </property>
+    <property name="markdown">
+     <string/>
     </property>
    </widget>
   </widget>
