@@ -4,7 +4,7 @@ import warnings
 warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
 
 from dotenv import load_dotenv
-from elevenlabs import Voice, VoiceSettings, play, voices
+from elevenlabs import VoiceSettings, play
 from elevenlabs.client import ElevenLabs
 
 load_dotenv(".env")
